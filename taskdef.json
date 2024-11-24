@@ -1,9 +1,8 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:ap-northeast-1:164321144300:task-definition/cloudtech-reservation-api:5",
     "containerDefinitions": [
         {
             "name": "cloudtech-reservation-api",
-            "image": "164321144300.dkr.ecr.ap-northeast-1.amazonaws.com/test-ecr:latest",
+            "image": "IMAGE1_NAME",
             "cpu": 0,
             "portMappings": [
                 {
@@ -89,6 +88,5 @@
         "operatingSystemFamily": "LINUX"
     },
     "registeredAt": "2024-11-24T07:29:08.075Z",
-    "registeredBy": "arn:aws:sts::164321144300:assumed-role/AWSCodePipelineServiceRole-ap-northeast-1-tekito-na-pipeline/1732433347732",
-    "tags": []
+    "registeredBy": "arn:aws:sts::164321144300:assumed-role/AWSCodePipelineServiceRole-ap-northeast-1-tekito-na-pipeline/1732433347732"
 }
