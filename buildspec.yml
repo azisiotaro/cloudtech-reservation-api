@@ -19,15 +19,16 @@ phases:
       - echo Pushing the Docker image...
       - docker push ${ECR_REPOSITORY}:latest
       - echo Build completed on `date`
-      - echo Creating imageDetail.json...
-      - |
-        echo '[
-          {
-            "name": "cloudtech-reservation-api",
-            "imageUri": "'${ECR_REPOSITORY}':latest"
-          }
-        ]' > imageDetail.json
-      - echo imageDetail.json created.
+      # - echo Creating imageDetail.json...
+      # - |
+      #   echo '[
+      #     {
+      #       "name": "cloudtech-reservation-api",
+      #       "imageUri": "'${ECR_REPOSITORY}':latest"
+      #     }
+      #   ]' > imageDetail.json
+      # - echo imageDetail.json created.
+      - printf '{"ImageURI":"%s"}' ${ECR_IMAGE_URI} > imageDetail.json
 
 artifacts:
   files:
