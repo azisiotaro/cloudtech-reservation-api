@@ -13,7 +13,7 @@ phases:
     commands:
       - echo Building the Docker image...
       - docker build -t api-repository .
-      - docker tag api-repository:latest ${ECR_REPOSITORY}:latest
+      # - docker tag api-repository:latest ${ECR_REPOSITORY}:latest
   post_build:
     commands:
       - echo Pushing the Docker image...
