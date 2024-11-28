@@ -17,17 +17,18 @@ phases:
   post_build:
     commands:
       - echo Pushing the Docker image...
+      - docker tag ${ECR_REPO_NAME}:latest ${ECR_IMAGE_URI}
       - docker push ${ECR_REPOSITORY}:latest
-      - echo Build completed on `date`
-      - echo Creating imageDetail.json...
-      - |
-        echo '[
-          {
-            "name": "cloudtech-reservation-api",
-            "imageUri": "'${ECR_REPOSITORY}':latest"
-          }
-        ]' > imageDetail.json
-      - echo imageDetail.json created.
+      # - echo Build completed on `date`
+      # - echo Creating imageDetail.json...
+      # - |
+      #   echo '[
+      #     {
+      #       "name": "cloudtech-reservation-api",
+      #       "imageUri": "'${ECR_REPOSITORY}':latest"
+      #     }
+      #   ]' > imageDetail.json
+      # - echo imageDetail.json created.
       - echo '{"ImageURI":"%s"}' ${ECR_IMAGE_URI} > imageDetail.json
 
 artifacts:
