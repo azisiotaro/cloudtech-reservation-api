@@ -13,11 +13,12 @@ phases:
     commands:
       - echo Building the Docker image...
       - docker build -t api-repository .
-      # - docker tag api-repository:latest ${ECR_REPOSITORY}:latest
   post_build:
     commands:
       - echo Pushing the Docker image...
-      - docker tag ${ECR_REPO_NAME}:latest ${ECR_IMAGE_URI}
+      # - docker tag ${ECR_REPO_NAME}:latest ${ECR_IMAGE_URI}
+      # - docker tag api-repository:latest ${ECR_REPOSITORY}:latest
+      - docker tag api-repository:latest ${ECR_IMAGE_URI}
       - docker push ${ECR_REPOSITORY}:latest
       # - echo Build completed on `date`
       # - echo Creating imageDetail.json...
