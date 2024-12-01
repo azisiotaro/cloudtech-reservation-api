@@ -33,7 +33,7 @@ phases:
       #     }
       #   ]' > imageDetail.json
       # - echo imageDetail.json created.
-      - echo '{"ImageURI":"%s"}' ${ECR_IMAGE_URI} > imageDetail.json
+      - printf '{"ImageURI":"%s"}' ${ECR_IMAGE_URI} > imageDetail.json
 
 artifacts:
   files:
