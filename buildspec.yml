@@ -20,7 +20,7 @@ phases:
       # - docker tag ${ECR_REPO_NAME}:latest ${ECR_IMAGE_URI}
       # - docker tag api-repository:latest ${ECR_REPOSITORY}:latest
       - docker tag api-repository:latest ${ECR_IMAGE_URI}
-      - docker push ${ECR_REPOSITORY}:latest
+      - docker push ${ECR_IMAGE_URI}:latest
       # - echo Build completed on `date`
       # - echo Creating imageDetail.json...
       # - |
