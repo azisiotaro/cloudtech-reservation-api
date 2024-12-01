@@ -1,9 +1,7 @@
 version: 0.2
-
 env:
   variables:
     ECR_REPO_NAME: api-repository
-
 phases:
   pre_build:
     commands:
@@ -20,24 +18,9 @@ phases:
       - echo Pushing the Docker image...
       - docker tag ${ECR_REPO_NAME}:latest ${ECR_IMAGE_URI}
       - docker push ${ECR_IMAGE_URI}
-
-      # - docker tag api-repository:latest ${ECR_IMAGE_URI}
-      # - docker push ${ECR_IMAGE_URI}:latest
-      # - echo Build completed on `date`
-      # - echo Creating imageDetail.json...
-      # - |
-      #   echo '[
-      #     {
-      #       "name": "cloudtech-reservation-api",
-      #       "imageUri": "'${ECR_REPOSITORY}':latest"
-      #     }
-      #   ]' > imageDetail.json
-      # - echo imageDetail.json created.
       - printf '{"ImageURI":"%s"}' ${ECR_IMAGE_URI} > imageDetail.json
-
 artifacts:
   files:
-#    - imagedefinitions.json
     - appspec.yml
     - taskdef.json
     - imageDetail.json
